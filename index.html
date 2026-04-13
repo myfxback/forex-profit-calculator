@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forex Profit Calculator | Free Trading Tool</title>
+
+<meta name="description" content="Free Forex Profit Calculator. Calculate your trading profit and loss easily with this simple tool by myfxback.">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #22c55e;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+.result {
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LOGO -->
+    <div style="text-align:center; margin-bottom:15px;">
+        <img src="https://myfxback.com/assets/myfxback-B87nvVWy.png" 
+             style="width:140px; height:auto;">
+    </div>
+
+    <!-- TITLE -->
+    <h2>Forex Profit Calculator</h2>
+
+    <!-- INPUT -->
+    <input type="number" id="lot" placeholder="Lot Size">
+    <input type="number" id="pips" placeholder="Pips Gain/Loss">
+
+    <!-- BUTTON -->
+    <button onclick="calculateProfit()">Calculate Profit</button>
+
+    <!-- RESULT -->
+    <div class="result" id="result"></div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Powered by <a href="https://myfxback.com" target="_blank">myfxback.com</a>
+    </div>
+
+</div>
+
+<script>
+function calculateProfit() {
+    let lot = document.getElementById("lot").value;
+    let pips = document.getElementById("pips").value;
+
+    if(lot === "" || pips === "") {
+        document.getElementById("result").innerHTML = "Please fill all fields";
+        return;
+    }
+
+    let profit = lot * pips * 10;
+
+    document.getElementById("result").innerHTML =
+        "Estimated Profit: <b>$" + profit.toFixed(2) + "</b>";
+}
+</script>
+
+</body>
+</html>
